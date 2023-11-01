@@ -1,8 +1,9 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100;200;300;400;500;600;700;800&display=swap');
 
 
 *,
@@ -12,23 +13,24 @@
 }
 
 :root{
-  --title-font-EN: 'Barlow', sans-serif;
+  --title-font-EN: 'Raleway', sans-serif;
   --title-font-CN: 'Noto Sans TC', sans-serif;
   --title-font-weight: 200;
   --content-font:'Roboto', sans-serif;
   --h1-weight:500;
   --h1-size:30px;
+  --second-color: #8d16d3;
   --main-text-size:16px;
   
 }  
 
-h1.logo{
-  font-family: var(--title-font-EN);
-  font-weight: 200;
-  font-size:25px;
-  padding-left: 2rem;
-  position: fixed;
+
+body {
+    line-height: 1.5;
+    margin:0;
+
 }
+
 p{
     font-family: var(--title-font-EN);
     font-size: 16px;
@@ -41,39 +43,134 @@ h1{
     font-weight: var(--h1-weight);
     margin-bottom: 0;
     font-size: 40px;
-
     font-weight: 300;
 }
 
 /*nav design*/
 nav{
-    position:fixed;
-    top: 10rem;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display:flex;
+    margin-top: 0;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
 }
 
-nav li{
-    display: flexbox;
-    margin-bottom: 15px;
-    
+nav ul{
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+    margin:0;
+    /*margin-left: 30px;*/
+
+}
+
+li.nav{
+    margin-right: 2rem;
+    list-style: none;
+
+}
+
+li.nav:last-child{
+    margin-right: 0;
+
+}
+
+
+img.nav{
+    width: 110px;
+
+}
+
+
+.hamburger div{
+    width: 30px;
+    background-color: #000000;
+    height:3px;
+    margin: 5px;
+
+}
+.hamburger{
+    display: none;
 }
 
 a{
     text-decoration: none;
 }
-a.nav{
-    font-family: var(--title-font-EN);
-    font-size: 20px;
-    color: black;
-    box-shadow: inset 0 0 0 0 #000000;
-    font-weight:900;
-    transition: all 0.5s ease; 
-    text-transform: uppercase;
 
+a.nav{
+    font-size: 16px;
+    color: black;
+    box-shadow: inset 0 0 0 0 var(--second-color);
+    font-weight:600;
+    transition: all 0.5s ease; 
+    /*text-transform: uppercase;*/
+    font-family: var(--title-font-EN);
+    white-space: nowrap;
 }
 a.nav:hover{
-    box-shadow: inset 200px 0 0 0 #000000;
+    box-shadow: inset 500px 0 0 0 var(--second-color);
     color: whitesmoke;
 
+}
+
+@media screen and (max-width: 700px) {
+    img.nav{
+        max-width: 100px;
+    
+    }
+
+    .hamburger{
+      display: block;
+      cursor: pointer;
+    }
+
+    nav{
+        justify-content: space-between;
+    }
+  
+    nav ul{
+      display:none;
+      flex-direction: column;
+      position: absolute;
+      top: 100px;
+      left: 0;
+      width: 100%;
+      background-color: black;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    a.nav{
+        color:white;
+        transition: none;
+        box-shadow: none;
+    }
+    a.nav:hover{
+        box-shadow: none;
+
+        color: var(--second-color);
+    
+    }
+
+
+
+    nav ul.show{
+      display:flex;
+    }
+
+  
+  }
+
+
+
+/*card list style*/
+div.cardlist{
+    margin-left:auto;
+    width: 800px;
 
 }
 
@@ -81,14 +178,6 @@ h2{
     font-family: var(--title-font-EN);
     font-weight: 300;
     color: black;
-}
-
-/*card list style*/
-div.cardlist{
-    margin-left:auto;
-    width: 800px;
-
-
 }
 
 li{
@@ -115,9 +204,14 @@ h2.cardh3{
     margin-top: 5px;
 }
 
+
 /*campaign pages*/
+article{
+    padding: 30px;
+}
+
 div.intro{
-    max-width: 800px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
@@ -126,21 +220,25 @@ div.intro{
 
 div.intro h1{
     text-align: center;
+    font-weight: 700;
 }
 
 div.introtext{
-    margin-top: 5rem;
+    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 
+
+div.introtext p{
+    font-weight: 400;
+}
 p.intro{
-    margin-top: 5px;
     padding-top: 0;
     font-family: var(--title-font-EN);
     font-weight: 300;
     font-style: italic;
-    font-weight: 300;
     text-align: center;
 }
 
@@ -149,10 +247,50 @@ h3.verizon{
 
 }
 
-img.campaign{
+div.image{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+img.campaign {
+    max-width: 70%;
+    margin: 10px;
+   
+}
+
+/*
+figure {
+    display: inline-block;
+    max-width:70%;
+}
+
+figure img.campaign {
     max-width: 100%;
-    height: auto;
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
+    height: auto;
+    margin: 0;
+}
+
+
+*/
+
+p.caption{
+    font-size: 16px;
+    max-width: 600px;
+    text-align: center;
+    margin: 0;
+    color: gray;
+}
+span.caption{
+    font-weight: 800;
+}
+
+@media screen and (max-width: 800px) {
+    img.campaign{
+        max-width: 100%;
+    }
 
 }
